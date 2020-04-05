@@ -1,7 +1,3 @@
-export interface ISpinner {
-    currentValue: 
-}
-
 export interface ISpinnerItem {
     value: Number,
     color: "Black" | "Red",
