@@ -29,7 +29,7 @@ export function Room ({ id }: RouteComponentProps<{id: Number}>) {
         ref.set({ ...spinnerState, isSpinning: true  });
         setTimeout(() => {
           ref.set({ isSpinning: false, spinnerValue: spinnerSingleton.spin() });
-        },1500);
+        }, 700);
       }} />
     );
 }
