@@ -1,35 +1,25 @@
 export interface ISpinnerItem {
-    value: Number,
-    color: "Black" | "Red",
-    isMoneyCard?: Boolean;
-    toString: () => String;
+  value: Number,
+  color: "Black" | "Red",
+  isMoneyCard?: boolean
 }
 
-export class SpinnerItem implements ISpinnerItem {
-  value: Number;
-  color: "Black" | "Red";
-  isMoneyCard?: Boolean | undefined;
-  constructor(value: Number, color: "Black" | "Red", isMoneyCard?: Boolean) {
-    this.value = value;
-    this.color = color;
-  }
-  toString() {
-    return this.isMoneyCard ? `Money Card!` : `${this.value} ${this.color}`;
-  }
+export function spinnerItemToString(item: ISpinnerItem) {
+  return item.isMoneyCard ? `Money Card!` : `${item.value} ${item.color}`
 }
 
 export class Spinner {
     spinnerOptions: Array<ISpinnerItem> = [
-        new SpinnerItem(4, "Black"),
-        new SpinnerItem(2, "Red"),
-        new SpinnerItem(1, "Black"),
-        new SpinnerItem(3, "Red"),
-        new SpinnerItem(5, "Black"),
-        new SpinnerItem(2, "Red"),
-        new SpinnerItem(4, "Black"),
-        new SpinnerItem(3, "Red"),
-        new SpinnerItem(1, "Black"),
-        new SpinnerItem(5, "Red", true)
+        { value: 4, color: "Black" },
+        { value: 2, color: "Red" },
+        { value: 1, color: "Black" },
+        { value: 3, color: "Red" },
+        { value: 5, color: "Black" },
+        { value: 2, color: "Red" },
+        { value: 4, color: "Black" },
+        { value: 3, color: "Red" },
+        { value: 1, color: "Black" } ,
+        { value: 5, color: "Red", isMoneyCard: true }
     ]
     spin () {
         return this.spinnerOptions[Math.floor(Math.random() * this.spinnerOptions.length)];
